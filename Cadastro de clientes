@@ -1,0 +1,30 @@
+import os
+
+def salvar_dados(nome, idade, genero, cpf, email, telefone):
+    with open('Cadastro_de_Clientes.txt', 'a') as arquivo:
+        arquivo.write(f'nome: {nome}\n')
+        arquivo.write(f'idade: {idade}\n')
+        arquivo.write(f'genero: {genero}\n')
+        arquivo.write(f'cpf: {cpf}\n')
+        arquivo.write(f'email: {email}\n')
+        arquivo.write(f'telefone: {telefone}\n')
+        arquivo.write('-' * 50 + '\n')
+
+def menu():
+    print("Olá, seja bem vindo. Faça o seu cadastro!")
+    nome = input("Informe seu nome completo: ")
+    idade = input("Informe a sua idade: ")
+    genero = input("Informe seu genero: ")
+    cpf = input("Informe seu CPF: ")
+    email = input("Informe seu e-mail: ")
+    telefone = input("Informe seu número de telefone: ")
+
+    salvar_dados(nome, idade, genero, cpf, email, telefone)
+    print("Cadastro realizado com sucesso!")
+
+if __name__ == "__main__":
+    while True:
+        menu()
+        continuar = input("Deseja realizar outro cadastro? (sim/nao): ")
+        if continuar.lower() != 's':
+            break
